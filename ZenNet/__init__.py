@@ -11,7 +11,7 @@ import global_utils
 import torch
 import urllib.request
 
-pretrain_model_pth_dir = os.path.expanduser('~/.cache/pytorch/checkpoints/zennet_pretrained')
+pretrain_model_pth_dir = os.path.expanduser('./models') #~/.cache/pytorch/checkpoints/zennet_pretrained
 
 zennet_model_zoo = {
     'zennet_cifar10_model_size05M_res32': {

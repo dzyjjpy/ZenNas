@@ -11,7 +11,7 @@ import torch
 from torchvision import transforms, datasets
 import ZenNet
 
-cifar10_data_dir = '~/data/pytorch_cifar10'
+cifar10_data_dir = './data/pytorch_cifar10' # ~/data/pytorch_cifar10
 cifar100_data_dir = '~/data/pytorch_cifar100'
 
 def accuracy(output, target, topk=(1, )):
