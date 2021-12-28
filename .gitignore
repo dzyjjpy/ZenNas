@@ -5,3 +5,7 @@
 __pycache__/
 upload_code_to_oss.sh
 download_code_from_oss.sh
+
+models/
+data/
+save_dir/
