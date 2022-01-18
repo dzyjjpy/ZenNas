@@ -11,16 +11,16 @@ import global_utils
 import torch
 import urllib.request
 
-pretrain_model_pth_dir = os.path.expanduser('./models') #~/.cache/pytorch/checkpoints/zennet_pretrained
+pretrain_model_pth_dir = os.path.expanduser('save_dir/') #~/.cache/pytorch/checkpoints/zennet_pretrained # ./models
 
 zennet_model_zoo = {
     'zennet_cifar10_model_size05M_res32': {
-        'plainnet_str_txt': 'zennet_cifar_model_size05M_res32.txt',
-        'pth_path': 'zennet_cifar10_model_size05M_res32/best-params_rank0.pth',
-        'num_classes': 10,
+        'plainnet_str_txt': 'Zen_NAS_cifar_params65K_dist/best_structure.txt',
+        'pth_path': 'Zen_NAS_cifar_params65K_dist/cifar10_144epochs/best-params_rank0.pth',
+        'num_classes': 6, # 10
         'use_SE': False,
-        'resolution': 32,
-        'crop_image_size': 32,
+        'resolution': 96, # 32
+        'crop_image_size': 96, # 32
         'pretrained_pth_url': 'https://idstcv.oss-cn-zhangjiakou.aliyuncs.com/ZenNet/pretrained_models/zennet_cifar10_model_size05M_res32/best-params_rank0.pth',
     },
 

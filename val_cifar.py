@@ -10,8 +10,9 @@ import os, sys, argparse, math, PIL
 import torch
 from torchvision import transforms, datasets
 import ZenNet
+from tqdm import tqdm
 
-cifar10_data_dir = './data/pytorch_cifar10' # ~/data/pytorch_cifar10
+cifar10_data_dir = './data/gesture_cifar10' # ~/data/pytorch_cifar10 ./data/pytorch_cifar10
 cifar100_data_dir = '~/data/pytorch_cifar100'
 
 def accuracy(output, target, topk=(1, )):
@@ -26,7 +27,7 @@ def accuracy(output, target, topk=(1, )):
 
         res = []
         for k in topk:
-            correct_k = correct[:k].view(-1).float().sum(0, keepdim=True)
+            correct_k = correct[:k].contiguous().view(-1).float().sum(0, keepdim=True) # add .contiguous() for .view()
             res.append(correct_k.mul_(100.0 / batch_size))
         return res
 
@@ -93,7 +94,7 @@ if __name__ == '__main__':
     acc5_sum = 0
     n = 0
     with torch.no_grad():
-        for i, (input, target) in enumerate(val_loader):
+        for i, (input, target) in tqdm(enumerate(val_loader)):
 
             if opt.gpu is not None:
                 input = input.cuda(opt.gpu, non_blocking=True)
