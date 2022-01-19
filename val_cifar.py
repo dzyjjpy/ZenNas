@@ -5,15 +5,18 @@ Copyright (C) 2010-2021 Alibaba Group Holding Limited.
 '''
 Usage:
 python val_cifar.py --dataset cifar10 --gpu 0 --arch zennet_cifar10_model_size05M_res32
+python val_cifar.py --dataset cls_gesture --gpu 0 --arch zennet_gesture_model_size05M_res96
 '''
 import os, sys, argparse, math, PIL
 import torch
 from torchvision import transforms, datasets
+from DataLoader.cls_gesture import Cls_Gesture
 import ZenNet
 from tqdm import tqdm
 
-cifar10_data_dir = './data/gesture_cifar10' # ~/data/pytorch_cifar10 ./data/pytorch_cifar10
+cifar10_data_dir = './data/pytorch_cifar10' # ~/data/pytorch_cifar10 
 cifar100_data_dir = '~/data/pytorch_cifar100'
+gesture_data_dir = './data/gesture_cifar10'
 
 def accuracy(output, target, topk=(1, )):
     """Computes the accuracy over the k top predictions for the specified values of k"""
@@ -72,6 +75,9 @@ if __name__ == '__main__':
         the_dataset = datasets.CIFAR10(root=cifar10_data_dir, train=False, download=True, transform=transformer)
     elif opt.dataset == 'cifar100':
         the_dataset = datasets.CIFAR100(root=cifar100_data_dir, train=False, download=True, transform=transformer)
+    elif opt.dataset == 'cls_gesture':
+        # the_dataset = datasets.Cls_Gesture(root=gesture_data_dir, train=False, download=False, transform=transformer)
+        the_dataset = Cls_Gesture(root=gesture_data_dir, train=False, download=False, transform=transformer)
     else:
         raise ValueError('Unknown dataset_name=' + opt.dataset)
     val_loader = torch.utils.data.DataLoader(the_dataset, batch_size=opt.batch_size, shuffle=False,

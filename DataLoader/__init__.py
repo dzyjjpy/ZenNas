@@ -44,13 +44,19 @@ params_dict = {
         'num_classes': 100,
     },
     'cifar10': {
+        'train_dir': os.path.expanduser('data/pytorch_cifar10'), # ~/data/pytorch_cifar10 
+        'val_dir': os.path.expanduser('data/pytorch_cifar10'), # ~/data/pytorch_cifar10 
+        'num_train_samples': 50000,
+        'num_val_samples': 10000,
+        'num_classes': 10 ,
+    },
+    'gesture': {
         'train_dir': os.path.expanduser('data/gesture_cifar10'), # ~/data/pytorch_cifar10 data/pytorch_cifar10
         'val_dir': os.path.expanduser('data/gesture_cifar10'), # ~/data/pytorch_cifar10 data/pytorch_cifar10
-        'num_train_samples': 90587, #50000
-        'num_val_samples': 5004, #  10000
-        'num_classes': 6, # 10 
+        'num_train_samples': 90587,
+        'num_val_samples': 5004,
+        'num_classes': 6,
     },
-
     'cifar100': {
         'train_dir': os.path.expanduser('~/data/pytorch_cifar100'),
         'val_dir': os.path.expanduser('~/data/pytorch_cifar100'),
