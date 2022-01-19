@@ -12,6 +12,7 @@ import torchvision.transforms as transforms
 import torchvision.datasets as datasets
 import numpy as np
 import PIL
+from DataLoader.cls_gesture import Cls_Gesture
 
 import hotfix.transforms
 import math
@@ -50,7 +51,7 @@ params_dict = {
         'num_val_samples': 10000,
         'num_classes': 10 ,
     },
-    'gesture': {
+    'cls_gesture': {
         'train_dir': os.path.expanduser('data/gesture_cifar10'), # ~/data/pytorch_cifar10 data/pytorch_cifar10
         'val_dir': os.path.expanduser('data/gesture_cifar10'), # ~/data/pytorch_cifar10 data/pytorch_cifar10
         'num_train_samples': 90587,
@@ -196,6 +197,8 @@ def load_cifar_like(dataset_name, set_name, train_augment, random_erase, auto_au
         the_dataset = datasets.CIFAR10(root=data_dir, train=set_name=='train', download=False, transform=transformer) # download=True
     elif dataset_name == 'cifar100':
         the_dataset = datasets.CIFAR100(root=data_dir, train=set_name=='train', download=True, transform=transformer)
+    elif dataset_name == 'cls_gesture':
+        the_dataset = Cls_Gesture(root=data_dir, train=set_name=='train', download=False, transform=transformer)
     else:
         raise ValueError('Unknown dataset_name=' + dataset_name)
 
@@ -247,8 +250,8 @@ def _get_data_(dataset_name=None, set_name=None, batch_size=None, train_augment=
                                   num_workers=num_workers, drop_last=drop_last,
                                   dataset_ImageFolderClass=dataset_ImageFolderClass,
                                   dataloader_testing=dataloader_testing)
-
-    if dataset_name in ['cifar10', 'cifar100']:
+    print('dataset_name ', dataset_name)
+    if dataset_name in ['cifar10', 'cifar100', 'cls_gesture']:
         dataset_params = params_dict[dataset_name]
         data_dir = dataset_params['train_dir'] if set_name == 'train' else dataset_params['val_dir']
 
