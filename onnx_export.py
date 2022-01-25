@@ -22,7 +22,7 @@ if __name__ == '__main__':
     parser.add_argument('--out_file', type=str, default="out.onnx",
                         help='out onnx file name.')
     parser.add_argument('--gpu', type=int, default=None,
-                        help='input image shape.')
+                        help='GPU device ID. None for CPU.')
     opt, _ = parser.parse_known_args(sys.argv)
 
     
