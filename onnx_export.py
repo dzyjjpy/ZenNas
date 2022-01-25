@@ -18,7 +18,7 @@ if __name__ == '__main__':
     parser.add_argument('--arch', type=str, default=None,
                         help='model to be evaluated.')
     parser.add_argument('--shape', type=int,  nargs='+', default=[96, 96],
-                        help='cifar10 or cifar100')
+                        help='input image size')
     parser.add_argument('--out_file', type=str, default="out.onnx",
                         help='out onnx file name.')
     parser.add_argument('--gpu', type=int, default=None,
