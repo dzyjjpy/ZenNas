@@ -17,6 +17,15 @@ pretrain_model_pth_dir = os.path.expanduser('save_dir/') #~/.cache/pytorch/check
 
 
 zennet_model_zoo = {
+    'zennet_gesture_model_size163k_flops2.59M_acc97.50_res96': {
+        'plainnet_str_txt': 'Zen_NAS_ImageNet_flops2.59M_params163K/best_structure_2.59M.txt',
+        'pth_path': 'Zen_NAS_ImageNet_flops2.59M_params163K/cls_gesture_epochs1440/best-params_rank0.pth',
+        'num_classes': 6,
+        'use_SE': False,
+        'resolution': 96,
+        'crop_image_size': 96,
+        'pretrained_pth_url': None,
+    },
     'zennet_gesture_model_size97k_flops3.71M_acc94.48_res96': {
         # save_dir/Zen_NAS_ImageNet_flops4M_params65K/best_structure.txt  save_dir/Zen_NAS_ImageNet_flops4M_params65K/cls_gesture_epochs48/best-params_rank0.pth 
         # Zen_NAS_cifar_params65K_0118/best_structure_v2.txt  Zen_NAS_cifar_params65K_0118/cifar10_144epochs/best-params_rank0.pth
