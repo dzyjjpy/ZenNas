@@ -9,3 +9,6 @@ download_code_from_oss.sh
 models/
 data/
 save_dir/
+experiments/
+ZenNet/Zen_NAS_*
+ZenNet/NAS_*
