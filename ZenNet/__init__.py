@@ -13,10 +13,16 @@ import urllib.request
 
 pretrain_model_pth_dir = os.path.expanduser('save_dir/') #~/.cache/pytorch/checkpoints/zennet_pretrained # ./models
 
+
+
+
 zennet_model_zoo = {
-    'zennet_gesture_model_size05M_res96': {
-        'plainnet_str_txt': 'Zen_NAS_cifar_params65K_0118/best_structure_v2.txt', # ZenNet/ Zen_NAS_cifar_params65K/best_structure.txt
-        'pth_path': 'Zen_NAS_cifar_params65K_0118/cifar10_144epochs/best-params_rank0.pth',# Zen_NAS_cifar_params65K/cifar10_144epochs/best-params_rank0.pth
+    'zennet_gesture_model_size97k_flops3.71M_acc94.48_res96': {
+        # save_dir/Zen_NAS_ImageNet_flops4M_params65K/best_structure.txt  save_dir/Zen_NAS_ImageNet_flops4M_params65K/cls_gesture_epochs48/best-params_rank0.pth 
+        # Zen_NAS_cifar_params65K_0118/best_structure_v2.txt  Zen_NAS_cifar_params65K_0118/cifar10_144epochs/best-params_rank0.pth
+        # ZenNet/ Zen_NAS_cifar_params65K/best_structure.txt Zen_NAS_cifar_params65K/cifar10_144epochs/best-params_rank0.pth
+        'plainnet_str_txt': 'Zen_NAS_ImageNet_flops4M_params65K/best_structure.txt', 
+        'pth_path': 'Zen_NAS_ImageNet_flops4M_params65K/cls_gesture_epochs48/best-params_rank0.pth',
         'num_classes': 6,
         'use_SE': False,
         'resolution': 96,
