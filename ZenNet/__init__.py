@@ -17,6 +17,33 @@ pretrain_model_pth_dir = os.path.expanduser('save_dir/') #~/.cache/pytorch/check
 
 
 zennet_model_zoo = {
+    'zennet_gesture_model_size15k_flops1.19M_acc96.29_res96': {
+        'plainnet_str_txt': 'Zen_NAS_ImageNet_flops1.19M_params15K/best_structure_1.19M_15k.txt',
+        'pth_path': 'Zen_NAS_ImageNet_flops1.19M_params15K/cls_gesture_epochs480/best-params_rank0.pth',
+        'num_classes': 6,
+        'use_SE': False,
+        'resolution': 96,
+        'crop_image_size': 96,
+        'pretrained_pth_url': None,
+    },
+    'zennet_gesture_model_size29k_flops1.38M_acc97.04_res96': {
+        'plainnet_str_txt': 'Zen_NAS_ImageNet_flops1.38M_params29K/best_structure_1.38M_29k.txt',
+        'pth_path': 'Zen_NAS_ImageNet_flops1.38M_params29K/cls_gesture_epochs1440/best-params_rank0.pth',
+        'num_classes': 6,
+        'use_SE': False,
+        'resolution': 96,
+        'crop_image_size': 96,
+        'pretrained_pth_url': None,
+    },
+    'zennet_gesture_model_size85k_flops1.89M_acc97.58_res96': {
+        'plainnet_str_txt': 'Zen_NAS_ImageNet_flops1.89M_params85K/best_structure_1.89M_85k.txt',
+        'pth_path': 'Zen_NAS_ImageNet_flops1.89M_params85K/cls_gesture_epochs1200/best-params_rank0.pth',
+        'num_classes': 6,
+        'use_SE': False,
+        'resolution': 96,
+        'crop_image_size': 96,
+        'pretrained_pth_url': None,
+    },
     'zennet_gesture_model_size163k_flops2.59M_acc97.50_res96': {
         'plainnet_str_txt': 'Zen_NAS_ImageNet_flops2.59M_params163K/best_structure_2.59M.txt',
         'pth_path': 'Zen_NAS_ImageNet_flops2.59M_params163K/cls_gesture_epochs1440/best-params_rank0.pth',
